@@ -1,31 +1,18 @@
-import React, { useState } from "react";
+import { useCount } from "../useCount";
 
 function ButtonComponent() {
-  const [number, setNumber] = useState(0);
-
-  const incrNumber = () => {
-    setNumber(number + 1);
-  };
-
-  const resetNumber = () => {
-    setNumber(0);
-  };
-
-  const decrNumber = () => {
-    setNumber(number - 1);
-  };
-
+  const { number, increase, reset, decrease } = useCount();
   return (
     <>
       <div className="numberHolder">{number}</div>
       <div className="buttonsContainer">
-        <button className="buttons" onClick={incrNumber}>
+        <button className="buttons" onClick={increase}>
           Increase
         </button>
-        <button className="buttons" onClick={resetNumber}>
+        <button className="buttons" onClick={reset}>
           Reset
         </button>
-        <button className="buttons" onClick={decrNumber}>
+        <button className="buttons" onClick={decrease}>
           Decrease
         </button>
       </div>
